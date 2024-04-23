@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Playable Piano</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/tone@latest/build/Tone.min.js"></script>
+    <!-- <script src="soundsScript.js" defer></script> -->
+    <script src="MidiFileProcessor.js" defer></script>
+    <script src="pianoScript.js" defer></script>
+  </head>
+  <body>
+    <div class="wrapper">
+        <h1>Select a song or play your own song</h1>
+        <!-- HTML to allow user to upload a file -->
+        <button id="activate">Activate Audio</button>
+        <input type="file" id="songUpload" accept=".midi, .mid" class="song-upload">
+      <header>
+        
+        <div class="column volume-slider">
+          <span>Volume</span><input type="range" min="0" max="1" value="0.5" step="any">
+        </div>
+          <div class="column keys-checkbox">
+            <span>Toggle Display</span>
+            <input type="checkbox" id="keyToggle" checked>
+      </header>
+      <ul class="piano-keys">
+        <li class="key white" data-key="C4" data-alt-key="A"><span>C4</span></li>
+        <li class="key black" data-key="C#4" data-alt-key="W"><span>C#4</span></li>
+        <li class="key white" data-key="D4" data-alt-key="S"><span>D4</span></li>
+        <li class="key black" data-key="D#4" data-alt-key="E"><span>D#4</span></li>
+        <li class="key white" data-key="E4" data-alt-key="D"><span>E4</span></li>
+        <li class="key white" data-key="F4" data-alt-key="F"><span>F4</span></li>
+        <li class="key black" data-key="F#4" data-alt-key="T"><span>F#4</span></li>
+        <li class="key white" data-key="G4" data-alt-key="G"><span>G4</span></li>
+        <li class="key black" data-key="G#4" data-alt-key="Y"><span>G#4</span></li>
+        <li class="key white" data-key="A4" data-alt-key="H"><span>A4</span></li>
+        <li class="key black" data-key="A#4" data-alt-key="U"><span>A#4</span></li>
+        <li class="key white" data-key="B4" data-alt-key="J"><span>B4</span></li>
+        <li class="key white" data-key="C5" data-alt-key="K"><span>C5</span></li>
+        <li class="key black" data-key="C#5" data-alt-key="O"><span>C#5</span></li>
+        <li class="key white" data-key="D5" data-alt-key="L"><span>D5</span></li>
+        <li class="key black" data-key="D#5" data-alt-key="P"><span>D#5</span></li>
+        <li class="key white" data-key="E5" data-alt-key=";"><span>E5</span></li>
+        <li class="key white" data-key="F5" data-alt-key="Z"><span>F5</span></li>
+        <li class="key black" data-key="F#5" data-alt-key="X"><span>F#5</span></li>
+        <li class="key white" data-key="G5" data-alt-key="C"><span>G5</span></li>
+        <li class="key black" data-key="G#5" data-alt-key="V"><span>G#5</span></li>
+        <li class="key white" data-key="A5" data-alt-key="B"><span>A5</span></li>
+        <li class="key black" data-key="A#5" data-alt-key="N"><span>A#5</span></li>
+        <li class="key white" data-key="B5" data-alt-key="M"><span>B5</span></li>
+    </ul>
+    </div>
+  </body>
+</html>
