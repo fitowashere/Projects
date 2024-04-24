@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "midi-parser-js": "^4.0.4",
+    "tone": "^14.7.77"
+  }
+}
