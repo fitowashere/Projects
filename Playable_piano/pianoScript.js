@@ -56,32 +56,25 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function playNote(note, source) {
+        const currentTime = Tone.now();
         const keyElement = document.querySelector(`.key[data-key="${note}"]`);
         if (keyElement) {
             keyElement.classList.add('active');
-            console.log("Playing note:", note, "from source:", source);
-            synth.triggerAttack(note, Tone.now());
+            console.log("Triggering attack for", note, "from source", source, "at", currentTime);
+            synth.triggerAttack(note, currentTime);
         }
     }
     
     function releaseNote(note, source) {
-        try {
-            const currentTime = Tone.now();
-            if (currentTime == null) {
-                console.error("Current time is null, cannot release note:", note);
-                return;
-            }
-            const keyElement = document.querySelector(`.key[data-key="${note}"]`);
-            if (keyElement) {
-                keyElement.classList.remove('active');
-                console.log("Releasing note:", note, "from source:", source, "at", currentTime);
-                synth.triggerRelease(note, currentTime);
-            }
-        } catch (error) {
-            console.error("Failed to release note:", note, "Error:", error);
+        const currentTime = Tone.now();
+        const keyElement = document.querySelector(`.key[data-key="${note}"]`);
+        if (keyElement) {
+            keyElement.classList.remove('active');
+            console.log("Triggering release for", note, "from source", source, "at", currentTime);
+            synth.triggerRelease(currentTime - 0.1);
         }
     }
-
+    
     const keyMap = {
         'KeyA': 'C4', 'KeyW': 'C#4', 'KeyS': 'D4', 'KeyE': 'D#4', 'KeyD': 'E4', 'KeyF': 'F4',
         'KeyT': 'F#4', 'KeyG': 'G4', 'KeyY': 'G#4', 'KeyH': 'A4', 'KeyU': 'A#4', 'KeyJ': 'B4', 
