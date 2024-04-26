@@ -1,9 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
     const activateBtn = document.getElementById('activate');
     const keys = document.querySelectorAll('.key');
+    const volumeControl = document.querySelector('input[type="range"]');
     
     // Use PolySynth with the Synth as the voice
     const synth = new Tone.PolySynth(Tone.Synth).toDestination();
+    const gainNode = new Tone.Gain().toDestination();
+    synth.connect(gainNode);
+
+    // Initialize volume from the slider
+    gainNode.gain.value = volumeControl.value;
+
+    // Handle volume changes
+    volumeControl.addEventListener('input', function() {
+        gainNode.gain.value = this.value;
+    });
 
     // Ensure the AudioContext is activated on user interaction
     activateBtn.addEventListener('click', async () => {
