@@ -14,16 +14,19 @@ export default function Board() {
   // Track the order of moves for each player
   const [xMoves, setXMoves] = useState([]);
   const [oMoves, setOMoves] = useState([]);
+  // Score tracking
+  const [scores, setScores] = useState({ X: 0, O: 0 });
+  const [gameOver, setGameOver] = useState(false);
 
   function handleClick(i) {
-    if (calculateWinner(squares) || squares[i]) {
+    // Don't allow moves if game is over or square is occupied
+    if (gameOver || squares[i]) {
       return;
     }
 
     const nextSquares = squares.slice();
     const currentPlayer = xIsNext ? 'X' : 'O';
     const currentMoves = xIsNext ? [...xMoves] : [...oMoves];
-    const otherMoves = xIsNext ? oMoves : xMoves;
 
     // Add the new move
     nextSquares[i] = currentPlayer;
@@ -42,13 +45,36 @@ export default function Board() {
     } else {
       setOMoves(currentMoves);
     }
+
+    // Check for winner after move
+    const winner = calculateWinner(nextSquares);
+    if (winner) {
+      setGameOver(true);
+      setScores(prevScores => ({
+        ...prevScores,
+        [winner]: prevScores[winner] + 1
+      }));
+    }
+
     setXIsNext(!xIsNext);
+  }
+
+  function resetGame() {
+    setSquares(Array(9).fill(null));
+    setXMoves([]);
+    setOMoves([]);
+    setXIsNext(true);
+    setGameOver(false);
+  }
+
+  function resetScores() {
+    setScores({ X: 0, O: 0 });
   }
 
   const winner = calculateWinner(squares);
   let status;
   if (winner) {
-    status = 'Winner: ' + winner;
+    status = '🎉 Winner: ' + winner + '!';
   } else {
     const xCount = squares.filter(square => square === 'X').length;
     const oCount = squares.filter(square => square === 'O').length;
@@ -56,8 +82,29 @@ export default function Board() {
   }
 
   return (
-    <>
-      <div className="status">{status}</div>
+    <div className="game-container">
+      {/* Score Board */}
+      <div className="scoreboard">
+        <h3>🏆 Score Board</h3>
+        <div className="score-display">
+          <div className="score-item">
+            <strong>Player X: {scores.X}</strong>
+          </div>
+          <div className="score-item">
+            <strong>Player O: {scores.O}</strong>
+          </div>
+        </div>
+        <button className="reset-scores-btn" onClick={resetScores}>
+          Reset Scores
+        </button>
+      </div>
+
+      {/* Game Status */}
+      <div className="status">
+        {status}
+      </div>
+      
+      {/* Game Board */}
       <div className="board-row">
         <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
         <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
@@ -73,7 +120,14 @@ export default function Board() {
         <Square value={squares[7]} onSquareClick={() => handleClick(7)} />
         <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
       </div>
-    </>
+
+      {/* Reset Game Button */}
+      <div className="button-container">
+        <button className="reset-game-btn" onClick={resetGame}>
+          {gameOver ? '🎮 Play Again' : '🔄 Reset Game'}
+        </button>
+      </div>
+    </div>
   );
 }
 

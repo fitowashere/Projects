@@ -88,11 +88,20 @@ src/
 - `squares`: Current board state (9-element array)
 - `xMoves`/`oMoves`: Arrays tracking move order for each player
 - `xIsNext`: Boolean indicating current player's turn
+- `scores`: Object tracking wins for each player `{ X: 0, O: 0 }`
+- `gameOver`: Boolean preventing moves after game ends
 
 ### Key Functions
-- `handleClick(i)`: Manages piece placement and removal logic
+- `handleClick(i)`: Manages piece placement, removal logic, and win detection
 - `calculateWinner(squares)`: Checks for winning combinations
+- `resetGame()`: Clears board and starts new game (preserves scores)
+- `resetScores()`: Clears the score tracking
 - Spread operator (`...`) used for immutable state updates
+
+### CSS Architecture
+- Clean separation of concerns with dedicated `style.css`
+- Responsive design with flexbox layouts
+- Hover effects and visual feedback for better UX
 
 ## 🚀 Available Scripts
 

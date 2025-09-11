@@ -88,3 +88,76 @@ body {
 .game-info {
   margin-left: 20px;
 }
+
+/* Game Container */
+.game-container {
+  text-align: center;
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+/* Score Board */
+.scoreboard {
+  background-color: #f0f0f0;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: inline-block;
+  min-width: 200px;
+}
+
+.scoreboard h3 {
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.score-display {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.score-item {
+  padding: 0 10px;
+}
+
+/* Buttons */
+.reset-scores-btn {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.reset-scores-btn:hover {
+  background-color: #ff5252;
+}
+
+.button-container {
+  margin-top: 20px;
+}
+
+.reset-game-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.reset-game-btn:hover {
+  background-color: #45a049;
+}
+
+/* Enhanced Status */
+.status {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
