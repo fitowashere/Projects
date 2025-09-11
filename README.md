@@ -20,8 +20,8 @@ Here are some of the projects included in this repository:
 
 - Playable_piano: A playable piano in javascipt
 - Tictactoe: A strategic twist on the classic tic-tac-toe game built with React.
-- Project 3: [Description of project 3]
-- ...
+- simple_search: application that demonstrates real-time filtering capabilities with an intuitive user interface
+- Project 4: [Description of project 3]
 
 Feel free to explore each project and provide feedback or suggestions for improvement.
 
