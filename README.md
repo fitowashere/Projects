@@ -19,7 +19,7 @@ In this repository, you will find a collection of small projects that I have wor
 Here are some of the projects included in this repository:
 
 - Playable_piano: A playable piano in javascipt
-- Project 2: [Description of project 2]
+- Tictactoe: A strategic twist on the classic tic-tac-toe game built with React.
 - Project 3: [Description of project 3]
 - ...
 
