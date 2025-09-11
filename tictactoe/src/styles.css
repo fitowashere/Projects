@@ -161,3 +161,56 @@ body {
   font-weight: bold;
   margin-bottom: 15px;
 }
+
+/* Animation Classes */
+.square {
+  transition: all 0.3s ease;
+}
+
+.square-new {
+  animation: piecePlace 0.3s ease;
+}
+
+.square-removing {
+  animation: pieceRemove 0.3s ease;
+}
+
+/* Keyframe Animations */
+@keyframes piecePlace {
+  0% {
+    transform: scale(0) rotate(180deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(90deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes pieceRemove {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2) rotate(-90deg);
+    background-color: #ffcccb;
+  }
+  100% {
+    transform: scale(0) rotate(-180deg);
+    opacity: 0;
+  }
+}
+
+/* Hover effects for better interaction feedback */
+.square:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.05);
+}
+
+.square:active {
+  transform: scale(0.95);
+}
