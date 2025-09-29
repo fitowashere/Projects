@@ -1,0 +1,133 @@
+.header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0 24px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logoIcon {
+  width: 32px;
+  height: 32px;
+  background-color: #3b82f6;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoText {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.brandName {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.navLinks {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.navLink {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  color: #374151;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 0;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+.navLink:hover {
+  color: #3b82f6;
+  border-bottom-color: #3b82f6;
+}
+
+.userSection {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-left: 24px;
+  border-left: 1px solid #e5e7eb;
+}
+
+.userAvatar {
+  width: 32px;
+  height: 32px;
+  background-color: #f3f4f6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userInitial {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    padding: 0 16px;
+  }
+  
+  .navLinks {
+    display: none;
+  }
+  
+  .userSection {
+    padding-left: 16px;
+  }
+  
+  .brandName {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    gap: 8px;
+  }
+  
+  .logoIcon {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .logoText {
+    font-size: 16px;
+  }
+  
+  .brandName {
+    font-size: 16px;
+  }
+}

@@ -1,2 +1,10 @@
+# dependencies
 node_modules
 .gitignore
+.env
+# unfinished projects
+react_redux_app
+my-app
+business-app
+businessapp-pro
+# production
